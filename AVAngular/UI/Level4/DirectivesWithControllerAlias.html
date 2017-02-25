@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html ng-app="store">
+<head>
+	<link rel="shortcut icon" type="image/png" href="../../Images/favicon.ico" />
+	<title>Directives with controllers - Shaping Up With Angular JS</title>
+	<link rel="stylesheet" type="text/css" href="../../Stylesheets/Bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../../Stylesheets/Validation.css">
+</head>
+<body>
+	<div ng-controller="StoreController as store" class="container">
+		<br />
+		<!-- Products Container -->
+		<div class="list-group" ng-repeat="product in store.products | orderBy:'price'">
+			<!-- Product Container -->
+			<div class="list-group-item list-group-item-info" ng-hide="product.soldOut">
+				<!-- Calling Attribute Directive -->
+				<h3 product-title></h3>
+				<div class="row text-center" ng-show="product.images.length">
+					<div class="col-md-2 col-md-offset-5">
+						<div class="panel panel-default">
+							<div class="panel-body">
+								<a href="#">
+									<img ng-src="{{ product.images[0].full }}" class="img-thumbnail img-responsive" width="200" height="200">
+								</a>
+							</div>
+							<div class="panel-footer">
+								<button ng-show="product.canPurchase" class="btn btn-success">Add to Cart</button>
+								<button ng-show="!product.canPurchase" class="btn btn-danger disabled">Add to Cart</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<product-panels></product-panels>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="../../Scripts/Angular/angular.min.js"></script>
+	<script type="text/javascript" src="../../Scripts/Custom/Level4/app2.js"></script>
+</body>
+</html>

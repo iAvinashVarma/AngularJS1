@@ -1,0 +1,15 @@
+﻿<div class="row text-center" ng-show="product.images.length">
+	<div class="col-md-2 col-md-offset-5">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<a href="#">
+					<img ng-src="{{ product.images[0].full }}" class="img-thumbnail img-responsive" width="200" height="200">
+				</a>
+			</div>
+			<div class="panel-footer">
+				<button ng-show="product.canPurchase" class="btn btn-success">Add to Cart</button>
+				<button ng-show="!product.canPurchase" class="btn btn-danger disabled">Add to Cart</button>
+			</div>
+		</div>
+	</div>
+</div>

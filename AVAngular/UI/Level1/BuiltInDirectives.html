@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="store">
+<head>
+	<link rel="shortcut icon" type="image/png" href="../../Images/favicon.ico" />
+	<title>Built-in Directives - Shaping Up With Angular JS</title>
+	<link rel="stylesheet" type="text/css" href="../../Stylesheets/Bootstrap/bootstrap.min.css">
+</head>
+<body>
+	<div ng-controller="StoreController as store">
+		<br />
+		<!-- Products Container -->
+		<div class="list-group" ng-repeat="product in store.products">
+			<!-- Product Container -->
+			<div class="list-group-item" ng-hide="product.soldOut">
+				<h1> {{product.name}} </h1>
+				<h2> ${{product.price}} </h2>
+				<section>
+					<ul class="nav nav-pills">
+						<li>
+							<a href="" ng-click="tab = 1"></a>
+						</li>
+						<li>
+							<a href="" ng-click="tab = 2"></a>
+						</li>
+						<li>
+							<a href="" ng-click="tab = 3"></a>
+						</li>
+					</ul>
+				</section>
+				<p> {{product.description}} </p>
+				<button ng-show="product.canPurchase" class="btn btn-primary">Add to Cart</button>
+				<button ng-show="!product.canPurchase" class="btn btn-danger disabled">Add to Cart</button>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="../../Scripts/Angular/angular.min.js"></script>
+	<script type="text/javascript" src="../../Scripts/Custom/Level1/app2.js"></script>
+</body>
+</html>

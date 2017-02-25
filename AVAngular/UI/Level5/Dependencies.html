@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html ng-app="store">
+<head>
+	<link rel="shortcut icon" type="image/png" href="../../Images/favicon.ico" />
+	<title>Directives with controllers - Shaping Up With Angular JS</title>
+	<link rel="stylesheet" type="text/css" href="../../Stylesheets/Bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../../Stylesheets/Validation.css">
+</head>
+<body>
+	<div ng-controller="StoreController as store" class="container">
+		<br/>
+		<!-- Products Container -->
+		<div class="list-group" ng-repeat="product in store.products | orderBy:'price'">
+			<!-- Product Container -->
+			<div class="list-group-item list-group-item-info" ng-hide="product.soldOut">
+				<!-- Calling Attribute Directive -->
+				<h3>
+					<product-title></product-title>
+				</h3>
+				<product-gallery></product-gallery>
+				<product-panels></product-panels>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="../../Scripts/Angular/angular.min.js"></script>
+	<script type="text/javascript" src="../../Scripts/Custom/Level5/app1.js"></script>
+	<script type="text/javascript" src="../../Scripts/Custom/Level5/products.js"></script>
+</body>
+</html>

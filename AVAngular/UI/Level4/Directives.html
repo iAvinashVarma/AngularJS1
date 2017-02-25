@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html ng-app="store">
+<head>
+	<link rel="shortcut icon" type="image/png" href="../../Images/favicon.ico" />
+	<title>Directives with ng-include - Shaping Up With Angular JS</title>
+	<link rel="stylesheet" type="text/css" href="../../Stylesheets/Bootstrap/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../../Stylesheets/Validation.css">
+</head>
+<body>
+	<div ng-controller="StoreController as store" class="container">
+		<br />
+		<!-- Products Container -->
+		<div class="list-group" ng-repeat="product in store.products | orderBy:'price'">
+			<!-- Product Container -->
+			<div class="list-group-item list-group-item-info" ng-hide="product.soldOut">
+				<!-- Custom Directives with ng-include -->
+				<h3 ng-include="'../Directives/CustomDirectives/product-title.html'"></h3>
+				<div class="row text-center" ng-show="product.images.length">
+					<div class="col-md-2 col-md-offset-5">
+						<div class="panel panel-default">
+							<div class="panel-body">
+								<a href="#">
+									<img ng-src="{{ product.images[0].full }}" class="img-thumbnail img-responsive" width="200" height="200">
+								</a>
+							</div>
+							<div class="panel-footer">
+								<button ng-show="product.canPurchase" class="btn btn-success">Add to Cart</button>
+								<button ng-show="!product.canPurchase" class="btn btn-danger disabled">Add to Cart</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<section ng-controller="PanelController as panel">
+					<ul class="nav nav-pills">
+						<li ng-class="{ active: panel.isSelected(1) }">
+							<a href="" ng-click="panel.selectTab(1)">Description</a>
+						</li>
+						<li ng-class="{ active: panel.isSelected(2) }">
+							<a href="" ng-click="panel.selectTab(2)">Specifications</a>
+						</li>
+						<li ng-class="{ active: panel.isSelected(3) }">
+							<a href="" ng-click="panel.selectTab(3)">Reviews</a>
+						</li>
+					</ul>
+					<div class="panel" ng-show="panel.isSelected(1)">
+						<h4>Description</h4>
+						<blockquote>{{product.description}}</blockquote>
+					</div>
+					<div class="panel" ng-show="panel.isSelected(2)">
+						<h4>Specifications</h4>
+						<blockquote>None yet</blockquote>
+					</div>
+					<div class="panel" ng-show="panel.isSelected(3)">
+						<h4>Reviews</h4>
+						<blockquote ng-repeat="review in product.reviews">
+							<b>{{review.stars}} Stars</b>
+							{{review.body}}
+							<cite class="clearfix">—{{review.author}} on {{review.createdOn | date}}</cite>
+						</blockquote>
+						<form name="reviewForm" ng-controller="ReviewController as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
+							<h4>Submit a Review</h4>
+							<fieldset class="form-group">
+								<blockquote>
+									<b>{{reviewCtrl.review.stars}} Stars</b>
+									{{reviewCtrl.review.body}}
+									<cite class="clearfix">—{{reviewCtrl.review.author}}</cite>
+								</blockquote>
+							</fieldset>
+							<fieldset class="form-group">
+								<select class="form-control" ng-model="reviewCtrl.review.stars" ng-options="stars for stars in [5,4,3,2,1]" title="Stars" required>
+									<option value="">Rate the Product</option>
+								</select>
+							</fieldset>
+							<fieldset class="form-group">
+								<textarea class="form-control vresize" rows="5" id="comment" placeholder="Write a short review of the product..." ng-model="reviewCtrl.review.body" required></textarea>
+							</fieldset>
+							<fieldset class="form-group">
+								<input type="email" class="form-control" placeholder="example@domain.com" ng-model="reviewCtrl.review.author" required>
+							</fieldset>
+							<div>Review Form is {{reviewForm.$valid}}</div>
+							<fieldset class="form-group">
+								<input type="submit" value="submit" class="btn btn-primary pull-right">
+							</fieldset>
+						</form>
+					</div>
+				</section>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="../../Scripts/Angular/angular.min.js"></script>
+	<script type="text/javascript" src="../../Scripts/Custom/Level4/app1.js"></script>
+</body>
+</html>

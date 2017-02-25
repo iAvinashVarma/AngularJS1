@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html ng-app="operations">
+<head>
+	<link rel="shortcut icon" type="image/png" href="../../Images/favicon.ico" />
+	<title>Ramp Up - Shaping Up With Angular JS</title>
+	<link rel="stylesheet" type="text/css" href="../../Stylesheets/Bootstrap/bootstrap.min.css" />
+	<link rel="stylesheet" type="text/css" href="../../Stylesheets/Validation.css" />
+	<script type="text/javascript" src="../../Scripts/Angular/angular.min.js"></script>
+</head>
+<body>
+	<div class="container">
+		<br />
+		<div class="list-group-item">
+			<fieldset class="form-group" ng-controller="NumericController">
+				<legend>Numerical Operations (Addition)</legend>
+				<form>
+					<div class="form-group">
+						<input type="number" class="form-control" id="numberOne" ng-model="numberOne" placeholder="Enter First Number.." required autofocus>
+					</div>
+					<div class="form-group">
+						<input type="number" class="form-control" id="numberTwo" ng-model="numberTwo" placeholder="Enter Second Number.." required>
+					</div>
+					<div class="form-group form-inline">
+						<label>Addition Result : {{ numberOne + numberTwo }}</label>
+					</div>
+				</form>
+			</fieldset>
+		</div>
+		<br />
+		<div class="list-group-item">
+			<fieldset class="form-group" ng-controller="StringController">
+				<legend>String Operations (Concatenation)</legend>
+				<form>
+					<div class="form-group">
+						<input type="text" class="form-control" id="firstName" ng-model="firstName" placeholder="Enter First Name.." required>
+					</div>
+					<div class="form-group">
+						<input type="text" class="form-control" id="lastName" ng-model="lastName" placeholder="Enter Second Name.." required>
+					</div>
+					<div class="form-group form-inline">
+						<label>Full Name : {{ firstName + ' ' + lastName }} </label>
+					</div>
+				</form>
+			</fieldset>
+		</div>
+	</div>
+	<script type="text/javascript" src="../../Scripts/Custom/Level1/app1.js"></script>
+</body>
+</html>
