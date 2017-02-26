@@ -11,5 +11,5 @@ This repository contains the code of Angular JS 1.X from Code School course - Sh
 
 | API  | Link |
 | ------ | ------ |
-| Bootstrap | http://twitter.github.com/bootstrap |
+| Bootstrap | http://getbootstrap.com |
 | AngularJS | http://angularjs.org |
