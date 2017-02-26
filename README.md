@@ -5,11 +5,11 @@ This repository contains the code of Angular JS 1.X from Code School course - Sh
 
 # Note
   - .sln file is added to open as a web site in Visual Studio 2015 / 2017.
-  - Directives in AngularJS works only if the url is hosted using IIS/Apache Tomcat®.
+  - Directives in AngularJS works only if the url is hosted using IIS/Apache TomcatÂ®.
 
 # APIs
 
 | API  | Link |
 | ------ | ------ |
-| Bootstrap | [http://twitter.github.com/bootstrap/] [PlDb] |
-| AngularJS | [http://angularjs.org] [PlGh] |
+| Bootstrap | http://getbootstrap.com |
+| AngularJS | http://angularjs.org |
