@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html>
+<html lang="en" ng-app="NoteWrangler">
+<head>
+	<link rel="shortcut icon" type="image/png" href="../../Images/favicon.ico" />
+	<title>Note Wrangler</title>
+	<meta charset="utf-8" />
+	<link rel="stylesheet" type="text/css" href="APIs/Bootstrap/Bootstrap-3.3.7/css/bootstrap.min.css" />
+</head>
+<body>
+	<div class="nav-list">
+		<a href="#/notes">Notes</a>
+		<a href="#/users">Users</a>
+	</div>
+	<div class="hero-wrapper"></div>
+	<div class="main-wrapper">
+		<div ng-view></div>
+	</div>
+	<!-- Vendor Scripts -->
+	<script type="text/javascript" src="APIs/jQuery/jQuery-1.11.1/jquery-1.11.1.min.js"></script>
+	<script type="text/javascript" src="APIs/Angular/angular.min.js"></script>
+	<script type="text/javascript" src="APIs/Angular/angular-route.js"></script>
+	<script type="text/javascript" src="APIs/Bootstrap/Bootstrap-3.3.7/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="APIs/MD5/md5.min.js"></script>
+	<script type="text/javascript" src="Scripts/Vendor/angular-resource.min.js"></script>
+	<script type="text/javascript" src="APIs/Bootstrap/Bootstrap-3.3.7/js/bootstrap.js"></script>
+	<!--Application Scripts-->
+	<script type="text/javascript" src="Scripts/app.js"></script>
+	<script type="text/javascript" src="Scripts/routes.js"></script>
+	<!--Services Scripts-->
+	<script type="text/javascript" src="Scripts/Services/notes.js"></script>
+</body>
+</html>

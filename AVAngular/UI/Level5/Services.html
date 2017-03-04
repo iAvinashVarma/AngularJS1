@@ -12,7 +12,7 @@
 		<!-- Products Container -->
 		<div class="list-group" ng-repeat="product in store.products | orderBy:'price'">
 			<!-- Product Container -->
-			<div class="list-group-item list-group-item-info" ng-hide="product.soldOut">
+			<div class="list-group-item well well-lg" ng-hide="product.soldOut">
 				<!-- Calling Attribute Directive -->
 				<h3>
 					<product-title></product-title>

@@ -7,7 +7,7 @@
 	directiveModule.controller('StoreController', ['$http', function ($http) {
 		var store = this;
 		store.products = [ ];
-		$http.get('../../Data/products.json').success(function (data) {
+		$http.get('https://iavinashvarma.github.io/AngularJS1/AVAngular/Data/products.json').success(function (data) {
 			store.products = data;
 		});
 	}]);

@@ -1,0 +1,14 @@
+﻿<input ng-model="search.$" />
+<div class="note-wrapper">
+	<a class="card-notes" ng-repeat="note in indexController.notes | filter:activeCategory | filter:search" ng-href="#/notes/{{note.id}}">
+		<div class="card" title="{{note.title}}">
+			<div ng-if="icon">
+				<i class="icon icon-card {{note.icon}}"></i>
+			</div>
+			<h2 class="h3">
+				{{note.title}}
+			</h2>
+		</div>
+	</a>
+</div>
+<nw-category-select active-category="activeCategory"></nw-category-select>
